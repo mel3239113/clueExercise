@@ -39,12 +39,12 @@ class CycleView: UIView {
         self.cycle = cycle
         super.init(frame: frame)
         
-        
-        let circularViewFrame = CGRect(x:Dimensions.XMargin, y: Dimensions.YMargin, width: self.frame.width - Dimensions.XMargin * 2, height: self.frame.height - Dimensions.YMargin - Dimensions.CalenderButtonHeight - Dimensions.YMargin )
-        
+        let circularViewFrame = CGRect(x:Dimensions.XMargin, y: self.center.y - self.frame.width / 2, width: self.frame.width - Dimensions.XMargin * 2, height: self.frame.width )
         let circularView = CircularView(frame: circularViewFrame)
+        circularView.backgroundColor = UIColor.clear
         circularView.addTarget(self, action: #selector(CycleView.newValue(slider:)), for: .valueChanged)
         self.addSubview(circularView)
+        circularView.setNeedsDisplay()
         
         self.setupCalenderBtn()
         self.setupCurrentDayBtn()
