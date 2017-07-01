@@ -58,9 +58,9 @@ class CircularView: UIControl {
         let centerPoint = CGPoint(x:self.frame.width / 2 - Dimensions.IndicatorRadius/2.0 ,y:self.frame.height / 2 - Dimensions.IndicatorRadius/2.0)
         
         var result:CGPoint = CGPoint()
-        let y = round(Double(self.frame.width / 2 ) * sin(DegreesToRadians(value: Double(-angle)))) + Double(centerPoint.y)
+        let y = round(Double(self.frame.width / 2 - Dimensions.IndicatorRadius / 2) * sin(DegreesToRadians(value: Double(-angle)))) + Double(centerPoint.y)
         
-        let x = round(Double(self.frame.width / 2 ) * cos(DegreesToRadians(value: Double(-angle)))) + Double(centerPoint.x)
+        let x = round(Double(self.frame.width / 2 - Dimensions.IndicatorRadius / 2) * cos(DegreesToRadians(value: Double(-angle)))) + Double(centerPoint.x)
         
         result.y = CGFloat(y)
         result.x = CGFloat(x)
