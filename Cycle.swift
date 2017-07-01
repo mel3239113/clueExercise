@@ -9,18 +9,11 @@
 import Foundation
 import UIKit
 
-protocol CycleDelegate  {
-    
-    func getCurrentEvent() ->CycleEvent
-    
-}
-
 struct Cycle {
     
     let cycleEvents : [CycleEvent]
     
     init(cycleEvents: [CycleEvent]) {
-        
         self.cycleEvents = cycleEvents
     }
     
@@ -29,12 +22,26 @@ struct Cycle {
         let count = CGFloat(self.cycleEvents.count) / 100
         let eventPos = count * CGFloat(percentageAsInt)
         let intPos =  Int(round(Double(eventPos)))
-        print(intPos - 1)
-        var pos = intPos - 1
-        if(pos < 0){
+
+        var pos = intPos - Constants.ArrayOffSet
+        if (pos < 0){
             pos = 0
         }
         return self.cycleEvents[pos]
     }
+    
+    func activeEvents() -> [CycleEvent] {
+        
+        var activeEvents : [CycleEvent] = []
+        for event in self.cycleEvents {
+            if (event.eventRegistered){
+                activeEvents.append(event)
+            }
+        }
+        
+        activeEvents.sort{ $0.day < $1.day }
+        return activeEvents
+    }
+
 }
 

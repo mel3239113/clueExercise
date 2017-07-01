@@ -14,7 +14,6 @@ class CircularView: UIControl {
     
     struct Dimensions {
         static let IndicatorRadius : CGFloat = 40
-
     }
 
     override func draw(_ rect: CGRect) {
@@ -76,14 +75,11 @@ class CircularView: UIControl {
         return true;
     }
     
-    override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
-        
-    }
-    
+
     private func moveHandle(lastPoint : CGPoint){
         
         let centerPoint = CGPoint(x: self.frame.size.width/2 , y: self.frame.size.height/2)
-        let currentAngle = pointToBearingDegrees(startPoint: centerPoint, lastPoint: lastPoint)
+        let currentAngle = self.pointToBearingDegrees(startPoint: centerPoint, lastPoint: lastPoint)
         let angleInt = floor(currentAngle)
         self.angle = 360 - angleInt;
         

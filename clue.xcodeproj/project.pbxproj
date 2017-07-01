@@ -19,6 +19,8 @@
 		836995C11F004CDC008A3174 /* CycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836995C01F004CDC008A3174 /* CycleView.swift */; };
 		836995C31F004CF1008A3174 /* CycleEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836995C21F004CF1008A3174 /* CycleEventView.swift */; };
 		839BF51F1F07E7D000919ED9 /* EventRegisterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839BF51E1F07E7D000919ED9 /* EventRegisterButton.swift */; };
+		839BF5211F07FE9B00919ED9 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839BF5201F07FE9B00919ED9 /* DetailTableViewController.swift */; };
+		839BF5671F08107A00919ED9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839BF5661F08107A00919ED9 /* Constants.swift */; };
 		83C816A91F05984A00F9530A /* CircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C816A81F05984A00F9530A /* CircularView.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,12 +55,14 @@
 		836995A81F0047D5008A3174 /* clueUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clueUITests.swift; sourceTree = "<group>"; };
 		836995AA1F0047D5008A3174 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		836995B81F004A98008A3174 /* CycleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleViewController.swift; sourceTree = "<group>"; };
-		836995BC1F004C78008A3174 /* Cycle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cycle.swift; sourceTree = "<group>"; };
-		836995BE1F004C87008A3174 /* CycleEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleEvent.swift; sourceTree = "<group>"; };
-		836995C01F004CDC008A3174 /* CycleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleView.swift; sourceTree = "<group>"; };
-		836995C21F004CF1008A3174 /* CycleEventView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleEventView.swift; sourceTree = "<group>"; };
-		839BF51E1F07E7D000919ED9 /* EventRegisterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventRegisterButton.swift; sourceTree = "<group>"; };
-		83C816A81F05984A00F9530A /* CircularView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularView.swift; sourceTree = "<group>"; };
+		836995BC1F004C78008A3174 /* Cycle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Cycle.swift; path = ../Cycle.swift; sourceTree = "<group>"; };
+		836995BE1F004C87008A3174 /* CycleEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CycleEvent.swift; path = ../CycleEvent.swift; sourceTree = "<group>"; };
+		836995C01F004CDC008A3174 /* CycleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CycleView.swift; path = ../CycleView.swift; sourceTree = "<group>"; };
+		836995C21F004CF1008A3174 /* CycleEventView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CycleEventView.swift; path = ../CycleEventView.swift; sourceTree = "<group>"; };
+		839BF51E1F07E7D000919ED9 /* EventRegisterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventRegisterButton.swift; path = ../EventRegisterButton.swift; sourceTree = "<group>"; };
+		839BF5201F07FE9B00919ED9 /* DetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
+		839BF5661F08107A00919ED9 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../Constants.swift; sourceTree = "<group>"; };
+		83C816A81F05984A00F9530A /* CircularView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircularView.swift; path = ../CircularView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,12 +93,6 @@
 		8369957C1F0047D5008A3174 = {
 			isa = PBXGroup;
 			children = (
-				839BF51E1F07E7D000919ED9 /* EventRegisterButton.swift */,
-				83C816A81F05984A00F9530A /* CircularView.swift */,
-				836995BC1F004C78008A3174 /* Cycle.swift */,
-				836995C01F004CDC008A3174 /* CycleView.swift */,
-				836995C21F004CF1008A3174 /* CycleEventView.swift */,
-				836995BE1F004C87008A3174 /* CycleEvent.swift */,
 				836995871F0047D5008A3174 /* clue */,
 				8369959C1F0047D5008A3174 /* clueTests */,
 				836995A71F0047D5008A3174 /* clueUITests */,
@@ -115,8 +113,11 @@
 		836995871F0047D5008A3174 /* clue */ = {
 			isa = PBXGroup;
 			children = (
+				839BF56A1F08119E00919ED9 /* Views */,
+				839BF5691F08118600919ED9 /* Modal */,
+				839BF5681F08117300919ED9 /* ViewControllers */,
+				839BF5661F08107A00919ED9 /* Constants.swift */,
 				836995881F0047D5008A3174 /* AppDelegate.swift */,
-				836995B81F004A98008A3174 /* CycleViewController.swift */,
 				8369958C1F0047D5008A3174 /* Main.storyboard */,
 				8369958F1F0047D5008A3174 /* Assets.xcassets */,
 				836995911F0047D5008A3174 /* LaunchScreen.storyboard */,
@@ -141,6 +142,35 @@
 				836995AA1F0047D5008A3174 /* Info.plist */,
 			);
 			path = clueUITests;
+			sourceTree = "<group>";
+		};
+		839BF5681F08117300919ED9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				836995B81F004A98008A3174 /* CycleViewController.swift */,
+				839BF5201F07FE9B00919ED9 /* DetailTableViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		839BF5691F08118600919ED9 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				836995BE1F004C87008A3174 /* CycleEvent.swift */,
+				836995BC1F004C78008A3174 /* Cycle.swift */,
+			);
+			name = Modal;
+			sourceTree = "<group>";
+		};
+		839BF56A1F08119E00919ED9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				836995C21F004CF1008A3174 /* CycleEventView.swift */,
+				839BF51E1F07E7D000919ED9 /* EventRegisterButton.swift */,
+				83C816A81F05984A00F9530A /* CircularView.swift */,
+				836995C01F004CDC008A3174 /* CycleView.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,7 +313,9 @@
 				836995BF1F004C87008A3174 /* CycleEvent.swift in Sources */,
 				83C816A91F05984A00F9530A /* CircularView.swift in Sources */,
 				836995BD1F004C78008A3174 /* Cycle.swift in Sources */,
+				839BF5211F07FE9B00919ED9 /* DetailTableViewController.swift in Sources */,
 				836995891F0047D5008A3174 /* AppDelegate.swift in Sources */,
+				839BF5671F08107A00919ED9 /* Constants.swift in Sources */,
 				836995C31F004CF1008A3174 /* CycleEventView.swift in Sources */,
 				836995C11F004CDC008A3174 /* CycleView.swift in Sources */,
 				836995B91F004A98008A3174 /* CycleViewController.swift in Sources */,

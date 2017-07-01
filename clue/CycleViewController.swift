@@ -11,6 +11,7 @@ import UIKit
 class CycleViewController: UIViewController {
     
     let calenderBtn     = UIButton()
+    var cycle           = Cycle(cycleEvents: [])
 
     struct Dimensions {
         
@@ -28,23 +29,24 @@ class CycleViewController: UIViewController {
         
         var cycleEvents : [CycleEvent] = []
         for dayNumber in 0..<range.count {
-            
             let cycleEvent = CycleEvent(day: dayNumber, month: month, eventRegistered : false,active: true)
             cycleEvents.append(cycleEvent)
         }
         
-        let cycle = Cycle(cycleEvents:cycleEvents)
+        self.cycle = Cycle(cycleEvents:cycleEvents)
         let cycleView = CycleView(frame: self.view.frame, cycle: cycle)
         cycleView.center = self.view.center;
         self.view.addSubview(cycleView)
         self.setupCalenderBtn()
         
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func setupCalenderBtn() {
@@ -60,6 +62,10 @@ class CycleViewController: UIViewController {
     }
     
     func pushToCalendarView() {
-        
+    
+        let detailView = DetailTableViewController(events: self.cycle.activeEvents())
+        self.navigationController?.pushViewController(detailView, animated: true)
+        self.navigationController?.navigationBar.tintColor = UIColor.red
+
     }
 }

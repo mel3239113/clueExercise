@@ -16,7 +16,7 @@ class EventRegisterButton: UIButton {
         self.setTitle(cycleEvent.displayString(), for: .normal)
         self.cycleEvent = cycleEvent
         
-        if(cycleEvent.eventRegistered){
+        if (self.cycleEvent?.eventRegistered)!{
             self.backgroundColor = UIColor.red
         }
         else{
