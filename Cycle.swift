@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol CycleDelegate  {
     
@@ -23,5 +24,17 @@ struct Cycle {
         self.cycleEvents = cycleEvents
     }
     
+    func findEventFromPercentage(percentageAsInt : Int) -> CycleEvent{
+        
+        let count = CGFloat(self.cycleEvents.count) / 100
+        let eventPos = count * CGFloat(percentageAsInt)
+        let intPos =  Int(round(Double(eventPos)))
+        print(intPos - 1)
+        var pos = intPos - 1
+        if(pos < 0){
+            pos = 0
+        }
+        return self.cycleEvents[pos]
+    }
 }
 

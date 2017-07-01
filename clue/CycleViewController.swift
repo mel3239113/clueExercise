@@ -10,6 +10,14 @@ import UIKit
 
 class CycleViewController: UIViewController {
     
+    let calenderBtn     = UIButton()
+
+    struct Dimensions {
+        
+        static let XMargin : CGFloat = 20
+        static let CalenderButtonHeight : CGFloat = 44
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,32 +26,18 @@ class CycleViewController: UIViewController {
         let range = calendar.range(of: .day, in: .month, for: date)!
         let month = calendar.component(.month, from: date)
         
-        let day = calendar.component(.day, from: date)
-        
         var cycleEvents : [CycleEvent] = []
         for dayNumber in 0..<range.count {
             
-            let registeredEvent = self.queryRegistered(dayNumber: dayNumber, month: month)
-            if(dayNumber == day){
-                
-                let cycleEvent = CycleEvent(day: dayNumber, month: month, eventRegistered : registeredEvent,active: true)
-                cycleEvents.append(cycleEvent)
-
-            }
-            else{
-                let cycleEvent = CycleEvent(day: dayNumber, month: month, eventRegistered : registeredEvent,active: false)
-                cycleEvents.append(cycleEvent)
-
-            }
-            
-            
+            let cycleEvent = CycleEvent(day: dayNumber, month: month, eventRegistered : false,active: true)
+            cycleEvents.append(cycleEvent)
         }
         
         let cycle = Cycle(cycleEvents:cycleEvents)
-       
         let cycleView = CycleView(frame: self.view.frame, cycle: cycle)
         cycleView.center = self.view.center;
         self.view.addSubview(cycleView)
+        self.setupCalenderBtn()
         
         // Do any additional setup after loading the view.
     }
@@ -53,17 +47,19 @@ class CycleViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    
-    func queryRegistered(dayNumber : Int , month : Int) -> Bool {
+    func setupCalenderBtn() {
         
-        if(dayNumber == 21 || dayNumber == 3 || dayNumber == 1 || dayNumber == 7 || dayNumber == 4){
-            
-            return true
-        }
-        else{
-            return false
-        }
+        self.calenderBtn.setTitle("Calender", for: .normal)
+        self.calenderBtn.frame = CGRect(x: Dimensions.XMargin, y: self.view.frame.maxY - 66, width: self.view.frame.width - Dimensions.XMargin - Dimensions.XMargin, height: 44)
+        
+        self.calenderBtn.backgroundColor = UIColor.gray
+        self.calenderBtn.layer.cornerRadius = 5
+        self.calenderBtn.setTitleColor(UIColor.red, for: .highlighted)
+        self.calenderBtn.addTarget(self, action: #selector(CycleViewController.pushToCalendarView), for: .touchUpInside)
+        self.view.addSubview(self.calenderBtn)
+    }
+    
+    func pushToCalendarView() {
         
     }
 }

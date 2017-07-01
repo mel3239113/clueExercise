@@ -18,6 +18,7 @@
 		836995BF1F004C87008A3174 /* CycleEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836995BE1F004C87008A3174 /* CycleEvent.swift */; };
 		836995C11F004CDC008A3174 /* CycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836995C01F004CDC008A3174 /* CycleView.swift */; };
 		836995C31F004CF1008A3174 /* CycleEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836995C21F004CF1008A3174 /* CycleEventView.swift */; };
+		839BF51F1F07E7D000919ED9 /* EventRegisterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839BF51E1F07E7D000919ED9 /* EventRegisterButton.swift */; };
 		83C816A91F05984A00F9530A /* CircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C816A81F05984A00F9530A /* CircularView.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		836995BE1F004C87008A3174 /* CycleEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleEvent.swift; sourceTree = "<group>"; };
 		836995C01F004CDC008A3174 /* CycleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleView.swift; sourceTree = "<group>"; };
 		836995C21F004CF1008A3174 /* CycleEventView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleEventView.swift; sourceTree = "<group>"; };
+		839BF51E1F07E7D000919ED9 /* EventRegisterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventRegisterButton.swift; sourceTree = "<group>"; };
 		83C816A81F05984A00F9530A /* CircularView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +89,7 @@
 		8369957C1F0047D5008A3174 = {
 			isa = PBXGroup;
 			children = (
+				839BF51E1F07E7D000919ED9 /* EventRegisterButton.swift */,
 				83C816A81F05984A00F9530A /* CircularView.swift */,
 				836995BC1F004C78008A3174 /* Cycle.swift */,
 				836995C01F004CDC008A3174 /* CycleView.swift */,
@@ -284,6 +287,7 @@
 				836995C31F004CF1008A3174 /* CycleEventView.swift in Sources */,
 				836995C11F004CDC008A3174 /* CycleView.swift in Sources */,
 				836995B91F004A98008A3174 /* CycleViewController.swift in Sources */,
+				839BF51F1F07E7D000919ED9 /* EventRegisterButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

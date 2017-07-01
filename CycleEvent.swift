@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CycleEvent {
+class CycleEvent : NSObject {
     
     let day : Int!
     let month : Int!
@@ -30,6 +30,10 @@ struct CycleEvent {
     
     func loadEventData() {
         
+    }
+    
+    func displayString() ->String {
+        return "\(day + 1) \(monthName!)"
     }
 
 }
