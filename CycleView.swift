@@ -12,18 +12,7 @@ import UIKit
 class CycleView: UIView {
     // Subclass UIControl
     
-    let cycle : Cycle
-
-    var midViewX = CGFloat()
-    var midViewY = CGFloat()
-    var lastPosition = CGPoint()
-    
-    var circlePath2 = UIBezierPath()
-    var indicator = CAShapeLayer()
-    var margin = CGFloat()
-    let lineWidth: CGFloat = 10
-
-
+    let cycle           : Cycle
     let calenderBtn     = UIButton()
     let currentDayBtn   = UIButton()
     var circleCenter    = CGPoint()
@@ -42,7 +31,7 @@ class CycleView: UIView {
         let circularViewFrame = CGRect(x:Dimensions.XMargin, y: self.center.y - self.frame.width / 2, width: self.frame.width - Dimensions.XMargin * 2, height: self.frame.width )
         let circularView = CircularView(frame: circularViewFrame)
         circularView.backgroundColor = UIColor.clear
-        circularView.addTarget(self, action: #selector(CycleView.newValue(slider:)), for: .valueChanged)
+        circularView.addTarget(self, action: #selector(CycleView.sliderValueChanged(slider:)), for: .valueChanged)
         self.addSubview(circularView)
         circularView.setNeedsDisplay()
         
@@ -51,10 +40,23 @@ class CycleView: UIView {
         
     }
     
-    func newValue(slider : CircularView) {
+    func sliderValueChanged(slider : CircularView) {
      
-        print(slider.angle)
+        let currentEvent = self.findCycleEventForPercentage(angle: slider.angle)
+        currentEvent.loadEventData()
         self.currentDayBtn.setTitle(slider.angle.description, for: .normal)
+
+        if(currentEvent.eventRegistered){
+            
+        }
+        else{
+            
+        }
+        
+        
+    }
+    
+    func findCycleEventForPercentage(angle : CGFloat) -> CycleEvent{
         
     }
     
@@ -73,14 +75,11 @@ class CycleView: UIView {
     func setupCalenderBtn() {
       
         self.calenderBtn.setTitle("Calender", for: .normal)
-     
-        
         self.calenderBtn.frame = CGRect(x: Dimensions.XMargin, y: self.frame.maxY - 66, width: self.frame.width - Dimensions.XMargin - Dimensions.XMargin, height: 44)
         
-        self.calenderBtn.backgroundColor = UIColor.darkGray
+        self.calenderBtn.backgroundColor = UIColor.gray
         self.calenderBtn.layer.cornerRadius = 5
-        self.calenderBtn.layer.borderWidth = 1
-        self.calenderBtn.setTitleColor(UIColor.blue, for: .highlighted)
+        self.calenderBtn.setTitleColor(UIColor.red, for: .highlighted)
         self.calenderBtn.addTarget(self, action: #selector(CycleView.loadDayData), for: .touchUpInside)
         self.addSubview(self.calenderBtn)
     }

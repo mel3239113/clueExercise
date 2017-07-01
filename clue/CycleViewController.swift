@@ -18,9 +18,7 @@ class CycleViewController: UIViewController {
         let range = calendar.range(of: .day, in: .month, for: date)!
         let month = calendar.component(.month, from: date)
         
-        
         let day = calendar.component(.day, from: date)
-      //Setup CycleEvents
         
         var cycleEvents : [CycleEvent] = []
         for dayNumber in 0..<range.count {
@@ -42,8 +40,7 @@ class CycleViewController: UIViewController {
         }
         
         let cycle = Cycle(cycleEvents:cycleEvents)
-        
-        
+       
         let cycleView = CycleView(frame: self.view.frame, cycle: cycle)
         cycleView.center = self.view.center;
         self.view.addSubview(cycleView)
@@ -69,16 +66,4 @@ class CycleViewController: UIViewController {
         }
         
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

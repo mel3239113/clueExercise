@@ -11,7 +11,6 @@ import UIKit
 class CircularView: UIControl {
 
     var angle = CGFloat()
-    var circlePath : UIBezierPath?
     
     struct Dimensions {
         static let IndicatorRadius : CGFloat = 40
@@ -21,21 +20,13 @@ class CircularView: UIControl {
     override func draw(_ rect: CGRect) {
 
         let ctx = UIGraphicsGetCurrentContext();
-        ctx?.clear(rect)
-        self.drawHandler(ctx: ctx!)
         
-        if(self.circlePath == nil){
-           
-            self.circlePath = UIBezierPath(arcCenter:CGPoint(x:self.frame.width/2,y:self.frame.height/2), radius: self.frame.width / 2 - CycleView.Dimensions.XMargin, startAngle: CGFloat(0), endAngle:CGFloat(Double.pi * 2), clockwise: true)
+        let circlePathFrame = CGRect(x: Dimensions.IndicatorRadius / 2, y: Dimensions.IndicatorRadius, width: self.frame.width - Dimensions.IndicatorRadius, height: self.frame.width - Dimensions.IndicatorRadius)
+        ctx?.setStrokeColor(UIColor.gray.cgColor)
+        ctx?.setLineWidth(10)
+        ctx?.strokeEllipse(in: circlePathFrame)
 
-            let circleLayer = CAShapeLayer()
-            circleLayer.path = self.circlePath?.cgPath
-            circleLayer.fillColor = UIColor.clear.cgColor
-            circleLayer.strokeColor = UIColor.gray.cgColor
-            circleLayer.lineWidth = 10
-            self.layer.addSublayer(circleLayer)
-
-        }
+        self.drawHandler(ctx: ctx!)
     }
     
     func drawHandler(ctx : CGContext){
@@ -45,7 +36,6 @@ class CircularView: UIControl {
         let pointOfIndicator  = self.pointFromAngle(angle: Int(self.angle))
         
         let indicatorRectangle = CGRect(x: pointOfIndicator.x, y: pointOfIndicator.y, width: Dimensions.IndicatorRadius, height: Dimensions.IndicatorRadius)
-    
         ctx.setFillColor(UIColor.red.cgColor)
         ctx.fillEllipse(in: indicatorRectangle)
     
@@ -58,9 +48,9 @@ class CircularView: UIControl {
         let centerPoint = CGPoint(x:self.frame.width / 2 - Dimensions.IndicatorRadius/2.0 ,y:self.frame.height / 2 - Dimensions.IndicatorRadius/2.0)
         
         var result:CGPoint = CGPoint()
-        let y = round(Double(self.frame.width / 2 - Dimensions.IndicatorRadius / 2) * sin(DegreesToRadians(value: Double(-angle)))) + Double(centerPoint.y)
+        let y = round(Double(self.frame.width / 2 - Dimensions.IndicatorRadius / 2) * sin(self.degreesToRadians(value: Double(-angle)))) + Double(centerPoint.y)
         
-        let x = round(Double(self.frame.width / 2 - Dimensions.IndicatorRadius / 2) * cos(DegreesToRadians(value: Double(-angle)))) + Double(centerPoint.x)
+        let x = round(Double(self.frame.width / 2 - Dimensions.IndicatorRadius / 2) * cos(self.degreesToRadians(value: Double(-angle)))) + Double(centerPoint.x)
         
         result.y = CGFloat(y)
         result.x = CGFloat(x)
@@ -69,7 +59,7 @@ class CircularView: UIControl {
 
     }
     
-    func DegreesToRadians (value:Double) -> Double {
+    func degreesToRadians (value:Double) -> Double {
         return value * Double.pi / 180.0
     }
     

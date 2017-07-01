@@ -17,6 +17,7 @@ struct CycleEvent {
     var active : Bool = false
     
     init(day : Int , month : Int, eventRegistered : Bool, active : Bool ){
+        
         self.day = day
         self.month = month
         self.eventRegistered = eventRegistered
@@ -25,6 +26,10 @@ struct CycleEvent {
         let formatter = DateFormatter()
         let monthComponents = formatter.shortMonthSymbols
         self.monthName = monthComponents?[self.month]
+    }
+    
+    func loadEventData() {
+        
     }
 
 }
