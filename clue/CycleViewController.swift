@@ -26,8 +26,16 @@ class CycleViewController: UIViewController {
         let date = Date()
         let range = calendar.range(of: .day, in: .month, for: date)!
         let month = calendar.component(.month, from: date)
-        
         var cycleEvents : [CycleEvent] = []
+
+        let defaults = UserDefaults.standard
+        if(defaults.object(forKey: Constants.eventPointskey) == nil){
+            
+            let defaults = UserDefaults.standard
+            let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: cycleEvents)
+            defaults.set(encodedData, forKey: Constants.eventPointskey)
+        }
+        
         for dayNumber in 0..<range.count {
             
             let cycleEvent = CycleEvent(day: dayNumber, month: month, eventRegistered : false)
@@ -59,6 +67,7 @@ class CycleViewController: UIViewController {
                 return true
             }
         }
+        
         return false
     }
     
@@ -85,6 +94,7 @@ class CycleViewController: UIViewController {
     func pushToCalendarView() {
     
         let defaults = UserDefaults.standard
+        
         let decoded  = defaults.object(forKey: Constants.eventPointskey) as! Data
         let decodedEvents = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [CycleEvent]
         
