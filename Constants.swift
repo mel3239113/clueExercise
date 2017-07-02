@@ -10,5 +10,6 @@ import Foundation
 
 struct Constants {
     static let ArrayOffSet : Int = 1
+    static let eventPointskey : String = "Constants:EventKey"
 
 }

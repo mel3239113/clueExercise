@@ -61,12 +61,23 @@ class CycleView: UIView {
         self.currentDayBtn.layer.masksToBounds = true
         self.currentDayBtn.backgroundColor = UIColor.gray
         self.currentDayBtn.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping;
+        self.currentDayBtn.addTarget(self, action: #selector(CycleView.saveCycles), for: .touchUpInside)
         self.addSubview(self.currentDayBtn)
         
     }
    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func saveCycles() {
+        
+        let defaults = UserDefaults.standard
+        let events = self.cycle.activeEvents()
+        let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: events)
+        defaults.set(encodedData, forKey: Constants.eventPointskey)
+        defaults.synchronize()
+        
     }
     
     

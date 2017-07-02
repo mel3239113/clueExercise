@@ -29,8 +29,15 @@ class CycleViewController: UIViewController {
         
         var cycleEvents : [CycleEvent] = []
         for dayNumber in 0..<range.count {
-            let cycleEvent = CycleEvent(day: dayNumber, month: month, eventRegistered : false,active: true)
+            
+            let cycleEvent = CycleEvent(day: dayNumber, month: month, eventRegistered : false)
+            let eventSaved = self.isEventSaved(event: cycleEvent)
+            if (eventSaved){
+                cycleEvent.eventRegistered = true
+            }
+          
             cycleEvents.append(cycleEvent)
+
         }
         
         self.cycle = Cycle(cycleEvents:cycleEvents)
@@ -39,6 +46,20 @@ class CycleViewController: UIViewController {
         self.view.addSubview(cycleView)
         self.setupCalenderBtn()
         
+    }
+    
+    func isEventSaved(event : CycleEvent) -> Bool{
+        
+        let defaults = UserDefaults.standard
+        let decoded  = defaults.object(forKey: Constants.eventPointskey) as! Data
+        let decodedEvents = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [CycleEvent]
+        
+        for cachedEvent in decodedEvents{
+            if(cachedEvent.day == event.day && cachedEvent.month == event.month){
+                return true
+            }
+        }
+        return false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,7 +84,11 @@ class CycleViewController: UIViewController {
     
     func pushToCalendarView() {
     
-        let detailView = DetailTableViewController(events: self.cycle.activeEvents())
+        let defaults = UserDefaults.standard
+        let decoded  = defaults.object(forKey: Constants.eventPointskey) as! Data
+        let decodedEvents = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [CycleEvent]
+        
+        let detailView = DetailTableViewController(events: decodedEvents)
         self.navigationController?.pushViewController(detailView, animated: true)
         self.navigationController?.navigationBar.tintColor = UIColor.red
 

@@ -24,7 +24,7 @@ class EventRegisterButton: UIButton {
         }
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+        super.touchesBegan(touches, with: event)
         if(self.cycleEvent?.eventRegistered)!{
             self.cycleEvent?.eventRegistered = false
             self.backgroundColor = UIColor.gray
@@ -34,6 +34,7 @@ class EventRegisterButton: UIButton {
             self.backgroundColor = UIColor.red
 
         }
+        
     }
 
 }

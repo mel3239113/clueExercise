@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CycleEvent : NSObject {
+class CycleEvent : NSObject,NSCoding {
     
     let day : Int!
     let month : Int!
@@ -16,7 +16,7 @@ class CycleEvent : NSObject {
     let monthNameLong : String!
     var eventRegistered : Bool!
     
-    init(day : Int , month : Int, eventRegistered : Bool, active : Bool ){
+    init(day : Int , month : Int, eventRegistered : Bool ){
         
         self.day = day
         self.month = month
@@ -44,4 +44,20 @@ class CycleEvent : NSObject {
         return "\(day + Constants.ArrayOffSet) \(monthNameLong!)"
     }
 
+    
+    required convenience init(coder aDecoder: NSCoder) {
+        
+        let day = aDecoder.decodeObject(forKey: "day") as! Int
+        let month = aDecoder.decodeObject(forKey: "month") as! Int
+        let eventRegistered = aDecoder.decodeObject(forKey: "eventRegistered") as! Bool
+        self.init(day: day, month: month, eventRegistered: eventRegistered)
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.day, forKey: "day")
+        aCoder.encode(self.month, forKey: "month")
+        aCoder.encode(self.eventRegistered, forKey: "eventRegistered")
+    }
+
+    
 }
